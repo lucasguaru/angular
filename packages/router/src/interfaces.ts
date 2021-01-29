@@ -312,7 +312,6 @@ export type CanDeactivateFn<T> =
  * in the router configuration:
  *
  * ```
-
  * @NgModule({
  *   imports: [
  *     RouterModule.forRoot([
@@ -328,6 +327,18 @@ export type CanDeactivateFn<T> =
  *   exports: [RouterModule]
  * })
  * export class AppRoutingModule {}
+ * ```
+ *
+ * Finally, you can get the resolved data in your component in this way:
+ *
+ * ```
+ * hero: Hero;
+ * 
+ * constructor(private route: ActivatedRoute) {}
+ * 
+ * ngOnInit() {
+ * 	this.hero = this.route.snapshot.data['hero'];
+ * }
  * ```
  *
  * You can alternatively provide an in-line function with the `resolve()` signature:
